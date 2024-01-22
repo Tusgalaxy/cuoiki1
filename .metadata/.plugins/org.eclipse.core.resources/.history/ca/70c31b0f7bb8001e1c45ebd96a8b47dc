@@ -1,0 +1,39 @@
+package RanSanMoi;
+
+import java.awt.Graphics;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JPanel;
+
+public class customMenu extends JPanel {
+    private ImageIcon backgroundImage;
+    private JButton startButton;
+    private JButton continueButton;
+    private JButton exitButton;
+
+    public customMenu() {
+        // Load ảnh nền và thiết lập layout
+        backgroundImage = new ImageIcon("res/menu.png");
+        setLayout(null);
+
+        // Tạo và đặt vị trí các nút
+        startButton = new JButton("Play");
+        startButton.setBounds(50, 50, 185, 50);
+        add(startButton);
+
+        continueButton = new JButton("Continue");
+        continueButton.setBounds(50, 150, 185, 50);
+        add(continueButton);
+
+        exitButton = new JButton("Exit");
+        exitButton.setBounds(50, 250, 185, 50);
+        add(exitButton);
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        // Vẽ ảnh nền
+        g.drawImage(backgroundImage.getImage(), 0, 0, getWidth(), getHeight(), this);
+    }
+}
